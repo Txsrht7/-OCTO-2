@@ -33,11 +33,10 @@ jobs:
         CONFIG_ID: ${{ secrets.CONFIG_ID }} # secrets_id 提供
         CONFIG_KEY: ${{ secrets.CONFIG_KEY }} # secrets_key 提供
       run: | 
-        cp 1.py 2.py
         echo $CONFIG_ID > configid.txt
         echo $CONFIG_KEY > configkey.txt
-        sed -i '10 r configid.txt' 2.py
-        sed -i '12 r configkey.txt' 2.py
+        sed -i '10 r configid.txt' 1.py
+        sed -i '12 r configkey.txt' 1.py
     - name: Test Api #Api调用
       run: | 
-        python 2.py
+        python 1.py
